@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.css";
 
-function App() {
-  return (
+import React from "react";
+import "./App.css";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { Board } from "./components/board";
+import { ArrowKeys } from "./components/arrowKeys";
+
+const App: React.FC = () => (
+  <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Board />
+      <ArrowKeys />
     </div>
-  );
-}
+  </Provider>
+);
 
 export default App;
+
+// TODO:
+// class for board and its management
+// class for describing moves via chain-like syntax
+//
+// moveUp()
+//  .checkWall(walls)
+//  .modulize()
+//  .reactWithGoal()
+// ... etc
