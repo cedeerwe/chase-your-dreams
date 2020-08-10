@@ -1,37 +1,45 @@
 import * as React from "react";
 import Table from "react-bootstrap/Table";
-import { State } from "../store/state";
 import { connect } from "react-redux";
-import { PlayerBoard, BoardTile } from "../game/board";
+import { BoardTile } from "../game/board";
+import { State } from "../store/state";
 
-type Props = {
-  board: PlayerBoard;
-};
+type Props = ReturnType<typeof mapStateToProps>;
 
-const _Board: React.FC<Props> = ({ board }) => {
+const _Board: React.FC<Props> = ({ level }) => {
   return (
     <div>
-      <Table>
-        {board.tableIterator().map((row) => (
-          <tr>
-            {row.map((tile) => (
-              <td>
-                {tile === BoardTile.Player
-                  ? "P"
-                  : tile === BoardTile.Goal
-                  ? "G"
-                  : "x"}
-              </td>
-            ))}
-          </tr>
-        ))}
+      <Table style={{ width: 500, margin: "auto" }}>
+        <tbody>
+          {level.tableIterator().map((row, i) => (
+            <tr key={`tr ${i}`}>
+              {row.map((tile, j) => (
+                <td
+                  style={{
+                    backgroundColor:
+                      tile === BoardTile.Player
+                        ? "blue"
+                        : tile === BoardTile.Goal
+                        ? "red"
+                        : "white",
+                    width: "4em",
+                    height: "4em",
+                    border: "solid 2px",
+                    borderColor: "black",
+                  }}
+                  key={`td ${j}`}
+                ></td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
       </Table>
     </div>
   );
 };
 
 const mapStateToProps = (state: State) => ({
-  board: state.levels[state.activeLevel].board,
+  level: state.levels[state.activeLevel],
 });
 
 export const Board = connect(mapStateToProps)(_Board);

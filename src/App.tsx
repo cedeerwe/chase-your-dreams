@@ -1,17 +1,14 @@
 import "bootstrap/dist/css/bootstrap.css";
-
 import React from "react";
-import "./App.css";
 import { Provider } from "react-redux";
+import "./App.css";
+import { MainScreen } from "./components/mainView";
 import { store } from "./store/store";
-import { Board } from "./components/board";
-import { ArrowKeys } from "./components/arrowKeys";
 
 const App: React.FC = () => (
   <Provider store={store}>
     <div className="App">
-      <Board />
-      <ArrowKeys />
+      <MainScreen />
     </div>
   </Provider>
 );

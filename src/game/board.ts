@@ -1,4 +1,4 @@
-import { BoardPosition } from "./position";
+import { BoardPosition, MoveAction } from "./position";
 
 export enum BoardTile {
   Empty = "Empty",
@@ -52,6 +52,30 @@ export class PlayerBoard {
 
   public moveGoal(goal: BoardPosition): PlayerBoard {
     return this.move(this.player, goal);
+  }
+
+  public movePlayerAction(move: MoveAction): PlayerBoard {
+    return this.movePlayer(this.player.move(move));
+  }
+
+  public movePlayerBorder(move: MoveAction): PlayerBoard {
+    const movedBoard = this.movePlayerAction(move);
+    if (this.isOnBoard(movedBoard.player.x, movedBoard.player.x)) {
+      return movedBoard;
+    }
+    return this;
+  }
+
+  public movePlayerModulate(move: MoveAction): PlayerBoard {
+    return this.movePlayerAction(move).playerModulate();
+  }
+
+  public playerModulate(): PlayerBoard {
+    return this.movePlayer(this.player.modulate(this.height, this.width));
+  }
+
+  public playerReachedGoal(): boolean {
+    return this.player.x === this.goal.x && this.player.y === this.goal.y;
   }
 
   public tile(x: number, y: number): BoardTile {

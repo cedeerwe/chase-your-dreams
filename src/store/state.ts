@@ -1,26 +1,21 @@
-import { Level, LevelName } from "./types";
-import { PlayerBoard } from "../game/board";
-import { BoardPosition } from "../game/position";
+import { level1 } from "../game/levels/01";
+import { level2 } from "../game/levels/02";
+import { level3 } from "../game/levels/03";
+import { level4 } from "../game/levels/04";
+import { level5 } from "../game/levels/05";
+import { GameLevel } from "../game/newLevel";
+import { View } from "./types";
+import { level6 } from "../game/levels/06";
+import { level7 } from "../game/levels/07";
 
 export type State = {
-  levels: Level[];
+  levels: GameLevel[];
   activeLevel: number;
+  view: View;
 };
 
-const board1 = new PlayerBoard(
-  5,
-  5,
-  new BoardPosition(0, 0),
-  new BoardPosition(3, 2)
-);
 export const initialState: State = {
-  levels: [
-    {
-      name: LevelName.Intro,
-      board: board1,
-      round: 0,
-      bestResult: undefined,
-    },
-  ],
+  levels: [level1, level2, level3, level4, level5, level6, level7],
   activeLevel: 0,
+  view: View.Intro,
 };

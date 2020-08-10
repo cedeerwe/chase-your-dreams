@@ -1,31 +1,21 @@
 import { State } from "../store/state";
-import { Level } from "../store/types";
 import { MoveAction } from "./position";
-
-export enum LevelName {
-  Intro = "Intro",
-}
-
-function levelZeroLogic(level: Level, move: MoveAction): Level {
-  return {
-    ...level,
-    board: level.board.movePlayer(
-      level.board.player
-        .move(move)
-        .modulate(level.board.height, level.board.width)
-    ),
-  };
-}
+import { GameLevel } from "./newLevel";
 
 export function mainLogic(state: State, move: MoveAction): State {
-  if (state.activeLevel === 0) {
-    return {
-      ...state,
-      levels: state.levels.map((level, i) =>
-        i === 0 ? levelZeroLogic(level, move) : level
-      ),
-    };
-  } else {
-    return state;
-  }
+  return updateActiveLevel(state, (level) =>
+    level.action(move).goalAction(move)
+  );
+}
+
+export function updateActiveLevel(
+  state: State,
+  f: (level: GameLevel) => GameLevel
+): State {
+  return {
+    ...state,
+    levels: state.levels.map((level, i) =>
+      i === state.activeLevel ? f(level) : level
+    ),
+  };
 }
