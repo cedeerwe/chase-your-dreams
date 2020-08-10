@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/chase-your-dreams/static/css/main.5f361e03.chunk.css",
+    "main.js": "/chase-your-dreams/static/js/main.04ff1cb4.chunk.js",
+    "main.js.map": "/chase-your-dreams/static/js/main.04ff1cb4.chunk.js.map",
+    "runtime-main.js": "/chase-your-dreams/static/js/runtime-main.f5ce10c1.js",
+    "runtime-main.js.map": "/chase-your-dreams/static/js/runtime-main.f5ce10c1.js.map",
+    "static/css/2.ceb79488.chunk.css": "/chase-your-dreams/static/css/2.ceb79488.chunk.css",
+    "static/js/2.dfe5b86a.chunk.js": "/chase-your-dreams/static/js/2.dfe5b86a.chunk.js",
+    "static/js/2.dfe5b86a.chunk.js.map": "/chase-your-dreams/static/js/2.dfe5b86a.chunk.js.map",
+    "index.html": "/chase-your-dreams/index.html",
+    "precache-manifest.d441118d291330280bd252ba1594497a.js": "/chase-your-dreams/precache-manifest.d441118d291330280bd252ba1594497a.js",
+    "service-worker.js": "/chase-your-dreams/service-worker.js",
+    "static/css/2.ceb79488.chunk.css.map": "/chase-your-dreams/static/css/2.ceb79488.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/chase-your-dreams/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.dfe5b86a.chunk.js.LICENSE.txt": "/chase-your-dreams/static/js/2.dfe5b86a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f5ce10c1.js",
+    "static/css/2.ceb79488.chunk.css",
+    "static/js/2.dfe5b86a.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.04ff1cb4.chunk.js"
+  ]
+}
